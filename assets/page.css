@@ -1,0 +1,188 @@
+/* ==========================================================================
+   page.css — 设计页本身。设计页是“关于 UI 的文档”，不是 UI。
+   浅底深字；只有 mock-up 用应用深色。两者不能混。
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-fg);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 56px 140px;
+}
+
+/* --------------------------------------------------------------- 报头 */
+.masthead { margin-bottom: 8px; }
+.masthead__eyebrow {
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--page-fg-3);
+}
+.masthead h1 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+  line-height: 1.25;
+}
+.masthead p {
+  max-width: 720px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--page-fg-2);
+}
+.masthead code,
+.doc code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--page-chip);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: #33332E;
+}
+
+/* --------------------------------------------------------------- 章节 */
+.block {
+  margin-top: 56px;
+  padding-top: 26px;
+  border-top: 1px solid var(--page-rule);
+}
+.block__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.block__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #A8641C;
+}
+.block__head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 620;
+  letter-spacing: -0.2px;
+}
+.block__meta {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--page-fg-3);
+}
+.block__desc {
+  max-width: 760px;
+  margin: 0 0 26px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--page-fg-2);
+}
+
+/* --------------------------------------------------------------- 栅格 */
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  gap: 40px 24px;
+  align-items: start;
+}
+.row--3 { grid-template-columns: repeat(3, 344px); }
+.row--free { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+.cell { min-width: 0; }
+.cell__title {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--page-fg);
+}
+.cell__note {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--page-fg-3);
+}
+
+/* 深色 UI 落在纸面上的容器：给整页界面用 */
+.stage {
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--ui-bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 18px 48px -20px rgba(0, 0, 0, 0.28);
+}
+.stage--tight { padding: 20px; }
+
+/* --------------------------------------------------------------- 页脚 */
+.foot {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid var(--page-rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--page-fg-3);
+}
+
+/* --------------------------------------------------------------- 打印 */
+@media print {
+  body { background: #fff; }
+  .page { padding: 24px; max-width: none; }
+  .stage, .mock { box-shadow: none; }
+}
+
+/* 两列（面板类，宽度固定） */
+.row--2 { grid-template-columns: repeat(2, 344px); }
+.row--3 { grid-template-columns: repeat(3, 344px); }
+
+/* 图标总览 */
+.row--icons { grid-template-columns: repeat(7, 100px); gap: 28px 18px; }
+.icon-tile {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  background: #101014;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  color: #D8D8DE;
+}
+
+/* 通用小按钮（编辑器工具栏用） */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--ui-fg);
+}
+.btn--primary {
+  background: linear-gradient(180deg, var(--ui-blue), var(--ui-blue-deep));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: #fff;
+}

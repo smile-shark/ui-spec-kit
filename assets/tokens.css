@@ -1,0 +1,70 @@
+/* ==========================================================================
+   tokens.css — 设计变量的唯一来源
+   任何颜色/字号/间距/圆角都从这里取，组件里不写裸值。
+   生产项目可直接 import 这一份，与设计稿保持同源。
+   ========================================================================== */
+
+:root {
+  /* ---- 设计页（纸）：浅底深字，mock-up 才用深色 ---- */
+  --page-bg: #F7F7F5;
+  --page-fg: #1C1C1A;
+  --page-fg-2: #5C5C56;
+  --page-fg-3: #8A8A80;
+  --page-rule: #E3E3DC;
+  --page-chip: #EDEDE6;
+
+  /* ---- 应用 UI（深）：只在 .mock 作用域内生效 ---- */
+  --ui-bg: #08080A;
+  --ui-surface: #111114;
+  --ui-surface-raised: #1A1A1F;
+  --ui-surface-locked: #232327;
+
+  --ui-fg: #F0F0F2;
+  --ui-fg-2: #A2A2AA;
+  --ui-fg-3: #7C7C85;
+  --ui-fg-dim: #5B5B63;
+
+  /* 用 rgba 而非 hex，叠在任何底色上都不会“死黑” */
+  --ui-line: rgba(255, 255, 255, 0.07);
+  --ui-line-2: rgba(255, 255, 255, 0.12);
+  --ui-line-3: rgba(255, 255, 255, 0.20);
+  --ui-highlight: rgba(255, 255, 255, 0.07);
+
+  /* 语义色 */
+  --ui-blue: #4F91F8;
+  --ui-blue-deep: #2A63DA;
+  --ui-cyan: #33C7DA;
+  --ui-cyan-deep: #0C8FA3;
+  --ui-purple: #B472F9;
+  --ui-purple-deep: #8128D4;
+  --ui-amber: #E8A33D;
+  --ui-red: #EF4444;
+
+  /* 圆角 */
+  --r-sm: 5px;
+  --r-md: 7px;
+  --r-lg: 10px;
+  --r-xl: 14px;
+  --r-pill: 999px;
+
+  /* 间距（4 的倍数，别用 5/9/13 这种） */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 44px;
+  --s-8: 64px;
+
+  /* 字阶 */
+  --t-title: 14.5px;
+  --t-body: 13px;
+  --t-label: 12.5px;
+  --t-caption: 11.5px;
+  --t-micro: 10.5px;
+  --t-eyebrow: 9.5px;
+
+  --font-ui: Inter, "Segoe UI", "Microsoft YaHei", -apple-system, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+}
